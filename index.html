@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Lalita Jyoti Company Profile</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+    <!-- Font Awesome icons -->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS -->
+    <link href="static/css/styles.css" rel="stylesheet" />
+    <style>
+        /* Custom styles for the navbar */
+        #mainNav {
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            padding: 0.5rem 1rem;
+        }
+    
+        #mainNav .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    
+        #mainNav .navbar-brand img {
+            width: 100px;
+            height: auto;
+        }
+    
+        #mainNav .navbar-brand span {
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: 0.05rem;
+        }
+    
+        #mainNav .navbar-nav .nav-item .nav-link {
+            color: #fff;
+            font-weight: bold;
+        }
+    
+        #mainNav .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.7);
+        }
+    
+        /* Styles for Masthead */
+        .masthead {
+            position: relative;
+            height: 100vh;
+            background: url('{% static "assets/img/masthead-bg.jpg" %}') no-repeat center center;
+            background-size: cover;
+            text-align: left;
+            color: white;
+            display: flex;
+            align-items: center; /* Tetap vertikal tengah */
+            justify-content: flex-start; /* Teks berada di sebelah kiri */
+        }
+    
+        .masthead-container {
+            max-width: 800px;
+            margin: 0;
+            text-align: left; /* Rata kiri */
+            padding-left: 50px; /* Tambahkan padding kiri agar teks tidak mepet ke tepi */
+        }
+    
+        .masthead-heading {
+            font-size: 3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+    
+        .masthead-subheading {
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+    
+        /* Floating buttons container */
+        .floating-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+        }
+    
+        .floating-buttons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+    
+        .contact-us-btn {
+            background-color: #000000;
+        }
+    
+        .contact-us-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+        }
+    
+        .whatsapp-btn {
+            background-color: #25d366;
+            color: white;
+            font-size: 16px;
+        }
+    
+        .whatsapp-btn i {
+            margin-right: 8px;
+            font-size: 20px;
+        }
+    
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+        }
+    
+        /* Styling for the About Us Section */
+        #aboutus {
+            padding: 4rem 0;
+            background-color: #fff;
+        }
+    
+        #aboutus .about-image {
+            width: 100%;
+            height: auto;
+        }
+    
+        #aboutus .section-heading {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+    
+        #aboutus .about-content {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+        }
+    
+        #aboutus .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+    
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            justify-content: center;
+        }
+    
+        .card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+            position: relative;
+        }
+    
+        .slideshow {
+            width: 100%;
+            height: auto;
+            position: relative;
+        }
+    
+        .slideshow img {
+            display: none;
+            width: 100%;
+            height: auto;
+        }
+    
+        .slideshow img.active {
+            display: block;
+        }
+    
+        .card-content {
+            padding: 15px;
+        }
+    
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    
+        .card-description {
+            font-size: 0.9rem;
+            color: #555555;
+        }
+    
+        /* Responsive */
+        @media (max-width: 768px) {
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#page-top">
+                <img src="static/assets/img/logo-lalita.png" alt="Lalita Logo" />
+                <span>Lalita Jyoti</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu <i class="fas fa-bars ms-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#aboutus">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#product">Product</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#impact">Sustainability Impact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#locations">Location</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Masthead -->
+    <header class="masthead">
+        <div class="masthead-container">
+            <div class="masthead-heading text-uppercase"><br>
+                <br>Eco friendly 
+                <br>fashion begins 
+                <br>with pineapple 
+                <br>leaves
+            </div>
+            <div class="masthead-subheading">
+                Turning Pineapple Leaves into Premium Textiles
+            </div>
+        </div>
+    </header>
+<!-- Floating Buttons -->
+<div class="floating-buttons">
+    <!-- Contact Us Button -->
+    <a href="#contact" class="contact-us-btn">Contact Us</a>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/6281775759932" target="_blank" class="whatsapp-btn">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+    </a>
+</div>
+
+<!-- Include Font Awesome for WhatsApp icon -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    </div>
+
+    <!-- Content -->
+    <!-- About Us Section -->
+<section style="background-color: #f9f9f9; padding: 40px 0;">
+    <div class="container" style="max-width: 900px; margin: 0 auto; text-align: center;" id="aboutus">
+        <h2 class="section-heading" style="margin-bottom: 20px; font-size: 2.5rem; font-weight: bold;">About Us</h2>
+        <p class="about-content" style="font-size: 1.2rem; line-height: 1.8; text-align: justify; padding: 0 3cm; color: #555;">
+            Lalita Jyoti is a social enterprise based on community empowerment. 
+            We aim to address the growing demand for sustainable fashion by utilizing pineapple leaf fiber, 
+            an eco-friendly, biodegradable material. Our mission is to create a positive environmental and 
+            social impact by supporting local communities and promoting the use of renewable resources.
+        </p>
+    </div>
+</section>
+
+<!-- Our Story Section -->
+<section style="padding: 40px 0; background-color: #ffffff;">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Our Story Text -->
+            <div class="col-lg-6 order-lg-1" style="padding-left: 50px; padding-right: 50px;">
+                <h4 class="text-uppercase mb-3" style="font-family: 'Roboto', sans-serif; font-size: 2rem; color: #333; font-weight: bold;">Our Story</h4>
+                <p style="font-size: 1.2rem; line-height: 1.8; text-align: justify; color: #555;">
+                    Lalita Jyoti was founded with a vision to empower pineapple farmers by transforming agricultural waste into a source of income. Recognizing the detrimental effects of chemical pollution caused by fast fashion industries, particularly in Solo, Central Java, Indonesia, we sought to create an eco-friendly solution. By using pineapple leaf fiber, a sustainable and biodegradable material, we not only provide an alternative income for farmers but also contribute to reducing environmental pollution. Our commitment to sustainability drives every aspect of our business, from production to global market reach.
+                </p>
+            </div>
+
+            <!-- Full Image -->
+            <div class="col-lg-6 order-lg-2 text-center">
+                <img src="static/assets/img/about/our.jpg" alt="Our Story Image" class="img-fluid" style="max-width: 80%; height: auto; border-radius: 8px;">
+            </div>
+        </div>
+    </div>
+</section>
+<!--Visi & Misi -->
+<section style="padding: 40px 20px; background-color: black; color: white; font-family: 'Montserrat', sans-serif;">
+    <h2 style="text-align: center; font-weight: bold; margin-bottom: 30px; color: white;">Our Vision & Mission</h2>
+    <p style="text-align: center; font-weight: bold; margin-bottom: 30px; color: white;">Discover our purpose and goals for a sustainable future.</p>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 20px; max-width: 1200px; margin: 0 auto;">
+        
+        <!-- Vision Section -->
+        <div style="flex: 1; min-width: 300px; padding: 20px; box-sizing: border-box;">
+            <h3 style="font-family: 'Didot', serif; font-weight: bold; margin-bottom: 15px; text-align: right;">Vision</h3><br><br>
+            <p style="line-height: 1.8; font-family: 'Didot', serif; text-align: right; font-size: 1.6rem;">
+                To lead the global shift towards sustainable fashion by transforming agricultural waste into stylish, durable, and eco-friendly products, empowering communities, and fostering environmental stewardship.
+            </p>
+        </div>
+
+        <!-- Image Section -->
+        <div style="flex: 1; text-align: center; min-width: 300px;">
+            <img src="static/assets/img/about/vs.webp" alt="Vision and Mission" style="max-width: 100%; height: auto; border-radius: 8px; margin-top: 20px;">
+        </div>
+
+        <!-- Mission Section -->
+        <div style="flex: 1; min-width: 300px; padding: 20px; box-sizing: border-box;">
+            <h3 style="font-family: 'Didot', serif; font-weight: bold; margin-bottom: 15px;">Mission</h3>
+            <ul style="line-height: 1.8; font-family: 'Didot', serif; text-align: justify; font-size: 1rem; list-style: none; padding: 0;">
+                <li>1. <strong>Empowerment:</strong> To uplift local farmers, women, and people with disabilities by providing them with sustainable income opportunities through the creation of high-quality fashion and accessories made from pineapple leaf fiber.</li>
+                <li>2. <strong>Sustainability:</strong> To address the environmental impact of the fashion industry by offering products that are both stylish and environmentally friendly, reducing waste, and promoting the use of biodegradable materials.</li>
+                <li>3. <strong>Global Impact:</strong> To create a global brand that champions sustainability, promotes ethical production, and inspires consumers worldwide to make environmentally conscious choices in fashion.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="page-section" id="kemitraan" style="padding: 50px 0; background-color: #f8f9fa;">
+    <div class="container">
+        <!-- Judul Kemitraan -->
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="section-heading text-uppercase">Partnership</h2>
+            </div>
+        </div>
+
+        <!-- Konten Utama -->
+        <div class="row align-items-center">
+            <!-- Logo Kabupaten Siak -->
+            <div class="col-lg-4 col-md-6 text-center mb-4 mb-md-0">
+                <img src="static/assets/img/about/Siak.png" 
+                     alt="Logo Kabupaten Siak" 
+                     class="img-fluid logo-img" 
+                     style="max-width: 100%; width: 200px; height: auto; border-radius: 8px;">
+            </div>
+
+            <!-- Deskripsi Kemitraan -->
+            <div class="col-lg-8 col-md-6">
+                <p class="kemitraan-description" style="text-align: justify; font-size: 16px;">
+                    <strong>Lalita Jyoti</strong> has partnered with 1 Regency, namely
+                    <strong>Siak Regency</strong> to conduct farmer training in pineapple fiber processing.
+                    Through this collaboration, it is hoped that farmers can improve their skills and productivity
+                    in producing high-quality pineapple fiber that is ready to be further processed into products
+                    with economic value.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services-->
+<section class="page-section" id="">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Why You Should Choose Us?</h2><br>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-3">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x text-dark"></i>
+                    <i class="fas fa-leaf fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="my-3">1.<br>Expertise in Modern Sustainable Textile Techniques</h4>
+            </div>
+            <div class="col-md-3">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x text-dark"></i>
+                    <i class="fas fa-hands-helping  fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="my-3">2.<br>Empowered Local Communities</h4>
+            </div>
+            <div class="col-md-3">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x text-dark"></i>
+                    <i class="fas fa-edit fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="my-3">3.<br>Customized Product Acceptable</h4>
+            </div>
+            <div class="col-md-3">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x text-dark"></i>
+                    <i class="fas fa-percent fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="my-3">4. <br>over 50% pineapple leaf fibers material</h4>
+            </div>
+        </div>
+    </div>
+        <!-- product-->
+        <section class="page-section bg-light" id="product">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Our Product</h2>
+                    <h3 class="section-subheading text-muted">Our product use pineapple leaf fibers with combined of cotton and rayon. Our advantage compared to competitor is the percentage of our product start from 45% up to 85% whereas our competitor mostly use pineapple leaf fiber only up to 20%. 
+                        We are use natural dyes from indigenous Indonesian plants such as mahogany, strobilanthes, noni roots (moringa citrifolia), tegeran wood (cudrania javanensi trecul), and most recently dyes from the soil.</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 1-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                                <img class="img-fluid" src="static/assets/img/portfolio/p1.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading text-danger">$4 -$25/Kilograms </div>
+                                <div class="portfolio-caption-heading">SPINNING YARN MADE BY PINEAPPLE LEAF FIBER</div>
+                                <div class="portfolio-caption-subheading text-muted">
+                                    Brand : Lalita Jyoti
+                                    <br>Material : Pineapple Leaf Fiber 80% and Cotton 20% 
+                                    <br>Color Made by Request</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 2-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                               <img class="img-fluid" src="static/assets/img/portfolio/p2.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading text-danger">$4 -$25/Kilograms </div>
+                                <div class="portfolio-caption-heading">HANDSPINNING FABRICS MADE BY PINEAPPLE LEAF FIBER </div>
+                                <div class="portfolio-caption-subheading text-muted">
+                                    Brand : Lalita Jyoti
+                                    <br>Material :  Pineapple Leaf Fiber 80% and Cotton 20%  
+                                    <br>Color Made by Request</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 3-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                                <img class="img-fluid" src="static/assets/img/portfolio/p3.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading text-danger">$4 -$25/meters </div>
+                                <div class="portfolio-caption-heading">PINTAL FABRICS MADE BY PINEAPPLE LEAF FIBER (USE MACHINE)</div>
+                                <div class="portfolio-caption-subheading text-muted">Brand : Lalita Jyoti
+                                <br>Material :Pineapple Leaf Fiber 80% and Cotton 20%
+                                <br>Color Made by Request</div>
+                            </div>
+                        </div>
+                    </div>
+                    <section class="page-section" id="portfolio" style="padding: 50px 0;">
+                        <div class="container">
+                            <!-- Row untuk Best Seller dan Other -->
+        <div class="row d-flex align-items-center mb-4">
+            <!-- Best Seller -->
+            <div class="col-lg-6 col-md-6 col-12">
+                <h2 class="section-heading text-uppercase text-left">Best Seller</h2>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-12">
+                <h2 class="section-heading text-uppercase text-center">Other</h2>
+            </div>
+            
+            <!-- Other -->
+            <div class="col-lg-6 col-md-6 col-12">
+                <h2 class="section-heading text-uppercase text-right no-wrap"></h2>
+            </div>
+        </div>
+                    
+                                <!-- 2 Gambar Best Seller -->
+                                <div class="row">
+                                <div class="col-lg-3 col-md-6 mb-4">
+                                    <div class="portfolio-item">
+                                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                                            <img class="img-fluid" src="static/assets/img/portfolio/h.png" alt="Best Seller 1" />
+                                        </a>
+                                        <div class="portfolio-caption">
+                                            <div class="portfolio-caption-heading text-danger">$4 - $25/Meters</div>
+                                            <div class="portfolio-caption-heading">HANDSPINNING FABRICS MADE BY PINEAPPLE LEAF FIBER</div>
+                                            <div class="portfolio-caption-subheading text-muted">
+                                                Brand: Lalita Jyoti<br>
+                                                Material: Pineapple Leaf Fiber 80% and Cotton 20%<br>
+                                                Color Made by Request
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                    
+                                <div class="col-lg-3 col-md-6 mb-4">
+                                    <div class="portfolio-item">
+                                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                                            <img class="img-fluid" src="static/assets/img/portfolio/p5.jpeg" alt="Best Seller 2" />
+                                        </a>
+                                        <div class="portfolio-caption">
+                                            <div class="portfolio-caption-heading text-danger">$4 - $25/Meters</div>
+                                            <div class="portfolio-caption-heading">CUSTOM FABRICS WITH BATIK DETAIL & COLOURING</div>
+                                            <div class="portfolio-caption-subheading text-muted">
+                                                Brand: Lalita Jyoti<br>
+                                                Material: Pineapple Leaf Fiber 80% and Cotton 20%<br>
+                                                Color Made by Request
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <!-- 2 Gambar Other -->
+                                 <div class="col-lg-3 col-md-6 mb-4">
+                                    <div class="portfolio-item">
+                                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                                            <img class="img-fluid" src="static/assets/img/portfolio/pb.png" alt="Other 1" />
+                                        </a>
+                                        <div class="portfolio-caption">
+                                            <div class="portfolio-caption-heading">MACHINE RENTAL</div>
+                                            <div class="portfolio-caption-subheading text-muted">
+                                                Service Type: B2B (Business-to-Business)<br>
+                                                Rental Options: Daily, Weekly, and Monthly Plans<br>
+                                                The machine image shown is just an example, for the real machine you can chat directly
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                    
+                                <div class="col-lg-3 col-md-6 mb-4">
+                                    <div class="portfolio-item">
+                                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
+                                            <img class="img-fluid" src="static/assets/img/portfolio/b2b.png" alt="Other 2" />
+                                        </a>
+                                        <div class="portfolio-caption">
+                                            <div class="portfolio-caption-heading">CUSTOM CORPORATE PRODUCTS B2B</div>
+                                            <div class="portfolio-caption-subheading text-muted">
+                                                Material Choices: Eco-Friendly Materials, Premium Fabrics, and Recyclable Packaging<br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                    
+                                <!-- Other Section -->
+                                <div class="col-12">
+                                    
+                                </div>
+                    
+                               
+                            </div>
+                        </div>
+                    </section>
+                    
+ <!-- Impact -->
+<!-- Impact Section -->
+<section id="impact" style="padding: 40px 20px; background-color: black; color: white; font-family: 'Montserrat', sans-serif; width: 100%; box-sizing: border-box;">
+    <h2 style="text-align: center; font-weight: bold; margin-bottom: 30px; color: white;">
+        Sustainability Impact
+    </h2>
+    <p style="text-align: center; font-weight: bold; margin-bottom: 30px; color: white; font-size: 1.2rem;">
+        Transforming Lives Through Sustainability
+    </p>
+    <p style="text-align: justify; font-size: 1rem; line-height: 1.6; margin: 0 auto; max-width: 800px; color: #d3d3d3;">
+        At Lalita Jyoti, our mission goes beyond creating sustainable fashion. We are dedicated to empowering communities 
+        and fostering a positive impact on the environment and society. Here's how we make a difference:
+    </p>
+</section>
+
+<div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px;">
+    <!-- Card 1: Empowering Communities -->
+    <div class="card" style="flex: 1 1 calc(25% - 20px); box-sizing: border-box;">
+        <div class="slideshow" style="position: relative; text-align: center;">
+            <img src="static/assets/img/about/1a.png" alt="Gambar 1" class="active" style="width: 100%; height: auto;">
+            <img src="static/assets/img/about/2a.png" alt="Gambar 2" style="display: none; width: 100%; height: auto;">
+            <div class="overlay-text" style="position: absolute; bottom: 0; left: 0; right: 0; background-color: rgba(0,0,0,0.5); color: white; padding: 10px;">
+                <div id="text-1" style="display: block;">400+ Pineapple Farmers supported with additional income from leaf fiber waste.</div>
+                <div id="text-2" style="display: none;">100+ Women & People with Disabilities employed in crafting our products, earning a fair and sustainable livelihood.</div>
+            </div>
+        </div>
+        <div class="card-content">
+            <div class="card-title">1. Empowering Communities</div>
+            <div class="card-description">
+                We collaborate with rural pineapple farmers, women, and people with disabilities to transform agricultural waste into high-quality products.
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 2: Environmental Impact -->
+    <div class="card" style="flex: 1 1 calc(25% - 20px); box-sizing: border-box;">
+        <div class="slideshow" style="position: relative; text-align: center;">
+            <img src="static/assets/img/about/3b.png" alt="Gambar 3" class="active" style="width: 100%; height: auto;">
+            <img src="static/assets/img/about/4b.png" alt="Gambar 4" style="display: none; width: 100%; height: auto;">
+            <img src="static/assets/img/about/5b.png" alt="Gambar 5" style="display: none; width: 100%; height: auto;">
+            <div class="overlay-text" style="position: absolute; bottom: 0; left: 0; right: 0; background-color: rgba(0,0,0,0.5); color: white; padding: 10px;">
+                <div id="text-3" style="display: block;">5 Tons of Waste Upcycled into fashion and lifestyle products.</div>
+                <div id="text-4" style="display: none;">Reduced chemical pollution by adopting natural dyeing techniques sourced from Indonesian trees.</div>
+                <div id="text-5" style="display: none;">Promoting circular economy principles to tackle textile and plastic waste in collaboration with B2B partners.</div>
+            </div>
+        </div>
+        <div class="card-content">
+            <div class="card-title">2. Environmental Impact</div>
+            <div class="card-description">
+                The fast fashion industry has long been a major contributor to environmental degradation. Lalita Jyoti is committed to reducing textile waste and pollution.
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 3: Building a Sustainable Future -->
+    <div class="card" style="flex: 1 1 calc(25% - 20px); box-sizing: border-box;">
+        <div class="slideshow" style="position: relative; text-align: center;">
+            <img src="static/assets/img/about/6c.png" alt="Gambar 6" class="active" style="width: 100%; height: auto;">
+            <img src="static/assets/img/about/7c.png" alt="Gambar 7" style="display: none; width: 100%; height: auto;">
+            <div class="overlay-text" style="position: absolute; bottom: 0; left: 0; right: 0; background-color: rgba(0,0,0,0.5); color: white; padding: 10px;">
+                <div id="text-6" style="display: block;">SDG 9: Industry, Innovation, and Infrastructure - Promoting sustainable industrialization.</div>
+                <div id="text-7" style="display: none;">SDG 13: Climate Action - Reducing greenhouse gas emissions.</div>
+            </div>
+        </div>
+        <div class="card-content">
+            <div class="card-title">3. Building a Sustainable Future</div>
+            <div class="card-description">
+                Our work aligns with several Sustainable Development Goals (SDGs), demonstrating our commitment to global sustainability.
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 4: Social Innovation -->
+    <div class="card" style="flex: 1 1 calc(25% - 20px); box-sizing: border-box;">
+        <div class="slideshow" style="position: relative; text-align: center;">
+            <img src="static/assets/img/about/9d.png" alt="Gambar 8" class="active" style="width: 100%; height: auto;">
+            <img src="static/assets/img/about/10d.png" alt="Gambar 9" style="display: none; width: 100%; height: auto;">
+            <div class="overlay-text" style="position: absolute; bottom: 0; left: 0; right: 0; background-color: rgba(0,0,0,0.5); color: white; padding: 10px;">
+                <div id="text-8" style="display: block;">Supported 100+ B2B partnerships to reduce corporate waste.</div>
+                <div id="text-9" style="display: none;">Expanded access to global markets, connecting Indonesian artisans with ethical consumers worldwide.</div>
+            </div>
+        </div>
+        <div class="card-content">
+            <div class="card-title">4. Social Innovation</div>
+            <div class="card-description">
+                We believe in the power of social entrepreneurship to drive change. Every product we create is a testament to how innovation and community collaboration can create a more equitable and sustainable world.
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    function setupSlideshow(cardSelector) {
+        const card = document.querySelector(cardSelector);
+        const images = card.querySelectorAll('.slideshow img');
+        const textElements = card.querySelectorAll('.overlay-text > div');
+        let currentIndex = 0;
+
+        function changeSlide() {
+            // Hide current images and texts
+            images.forEach(img => img.style.display = 'none');
+            textElements.forEach(text => text.style.display = 'none');
+
+            // Move to next index
+            currentIndex = (currentIndex + 1) % images.length;
+
+            // Show current image and text
+            images[currentIndex].style.display = 'block';
+            textElements[currentIndex].style.display = 'block';
+        }
+
+        // Start slideshow
+        setInterval(changeSlide, 3000);
+    }
+
+    // Setup slideshows for each card
+    setupSlideshow('.card:nth-child(1)');
+    setupSlideshow('.card:nth-child(2)');
+    setupSlideshow('.card:nth-child(3)');
+    setupSlideshow('.card:nth-child(4)');
+});
+</script>
+
+<!-- Map -->
+<section class="page-section bg-light" id="locations" style="padding: 50px 0;">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Text Section -->
+            <div class="col-md-6">
+                <h2 class="section-heading text-uppercase">Location</h2>
+                <h3 class="section-subheading text-muted">
+                    We collaborate with pineapple farming communities in Karanganyar Regency, Central Java, 
+                    and Siak Regency, Riau. These farmers are key partners in supplying pineapple leaves as the primary 
+                    raw material for our eco-friendly fabrics. This partnership supports local economic empowerment while 
+                    promoting sustainability. Together, we create innovative textile products that positively impact the environment.
+                </h3>
+            </div>
+            <!-- Map Section -->
+            <div class="col-md-6">
+                <div id="map" style="height: 400px; width: 100%;"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+    // Initialize the map
+    const map = L.map('map', {
+        zoomControl: false,          // Disable zoom control buttons (+, -)
+        scrollWheelZoom: false,      // Disable scroll zoom
+        doubleClickZoom: false,      // Disable double-click zoom
+        dragging: false,             // Disable dragging
+        keyboard: false,             // Disable keyboard navigation
+        boxZoom: false,              // Disable box zoom
+        touchZoom: false             // Disable touch zoom (for mobile devices)
+    });
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Marker style
+    const blackIcon = L.icon({
+        iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png',
+        iconSize: [25, 41], // Default size
+        iconAnchor: [12, 41], // Anchor point
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41],
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
+        className: 'black-marker'
+    });
+
+    // Add marker for Kabupaten Karanganyar, Jawa Tengah
+    const karanganyarMarker = L.marker([-7.6162, 110.9501], { icon: blackIcon }).addTo(map)
+        .bindPopup("<b>Kabupaten Karanganyar</b><br>Jawa Tengah");
+
+    // Add marker for Kabupaten Siak, Riau
+    const siakMarker = L.marker([0.7444, 101.9053], { icon: blackIcon }).addTo(map)
+        .bindPopup("<b>Kabupaten Siak</b><br>Riau");
+
+    // Fit map bounds to include both markers
+    const bounds = L.latLngBounds([
+        [-7.6162, 110.9501], // Karanganyar
+        [0.7444, 101.9053]   // Siak
+    ]);
+    map.fitBounds(bounds, { padding: [50, 50] }); // Add padding for better view
+</script>
+      
+<!-- Contact -->
+<section class="page-section" id="contact" style="background-color: #000; color: #fff; padding: 50px 0; width: 100%; margin: 0;">
+    <div class="container-fluid px-0">
+        <div class="text-center mb-5">
+            <h2 class="section-heading text-uppercase" style="color: #fff;">Contact Us</h2>
+        </div>
+        <div class="row justify-content-between" style="align-items: center;">
+            <!-- Form Section (Contact Us) -->
+            <div class="col-lg-5" style="padding-right: 90px; padding-left: 80px;">
+                <form id="contactForm" action="mailto:triwahyuarihastuti@lalitajyoti.site" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+                    <div class="form-group mb-3">
+                        <!-- Name input -->
+                        <input class="form-control" id="name" name="name" type="text" placeholder="Your Name *" required />
+                    </div>
+                    <div class="form-group mb-3">
+                        <!-- Email address input -->
+                        <input class="form-control" id="email" name="email" type="email" placeholder="Your Email *" required />
+                    </div>
+                    <div class="form-group mb-3">
+                        <!-- Phone number input -->
+                        <input class="form-control" id="phone" name="phone" type="tel" placeholder="Your Phone *" required />
+                    </div>
+                    <div class="form-group mb-3">
+                        <!-- Message input -->
+                        <textarea class="form-control" id="message" name="message" placeholder="Your Message *" required></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">Send Message</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Contact Details Section (Connect with Us) -->
+            <div class="col-lg-5" style="padding-left: 15px;">
+                <div>
+                    <h4 class="mb-4">Connect with us</h4>
+                    <p><i class="fas fa-envelope"></i> Email: 
+                        <a href="mailto:triwahyuarihastuti@lalitajyoti.site" style="color: #1e90ff;">
+                           triwahyuarihastuti@lalitajyoti.site
+                        </a>
+                     </p>
+                     <p><i class="fab fa-linkedin"></i> LinkedIn: 
+                        <a href="https://www.linkedin.com/company/lalita-jyoti/" target="_blank" style="color: #1e90ff;">
+                           Lalita Jyoti
+                        </a>
+                     </p>
+                     <p><i class="fab fa-instagram"></i> IG: 
+                        <a href="https://www.instagram.com/lalitajyoti_id/" target="_blank" style="color: #1e90ff;">
+                           @lalitajyoti_id
+                        </a>
+                     </p>
+                     <p><i class="fab fa-twitter"></i> X Twitter: 
+                        <a href="https://twitter.com/lalitajyoti" target="_blank" style="color: #1e90ff;">
+                           @lalitajyoti
+                        </a>
+                     </p>
+                     <p><i class="fas fa-map-marker-alt"></i> Office: Surakarta, Central Java, Indonesia</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="static/js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
